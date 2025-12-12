@@ -18,7 +18,6 @@ The **Mecha-Lab Inventory Manager** is a web-based application designed to help 
 ## Project Structure
 * `/actions`: PHP processing logic (Clean Code separation).
 * `/db`: Contains the `mecha_lab_db.sql` file for database setup.
-* `/includes`: Header and Footer framing templates.
 * `/assets`: CSS, JS, and Images.
 
 ## Validation & Security

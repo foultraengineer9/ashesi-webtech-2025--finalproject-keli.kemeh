@@ -6,7 +6,7 @@ check_admin_role();
 // Gets the Item ID from URL...
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "SELECT * FROM Inventory WHERE item_id = '$id'";
+    $sql = "SELECT * FROM inventory WHERE item_id = '$id'";
     $result = $conn->query($sql);
     
     if ($result->num_rows > 0) {

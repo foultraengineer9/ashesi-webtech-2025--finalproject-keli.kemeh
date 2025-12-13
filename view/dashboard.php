@@ -14,7 +14,7 @@ $result = $conn->query($sql);
 
 <?php include 'header.php'; ?>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-maroon mb-4">
+<nav class="navbar navbar-expand-lg navbar-dark mb-4" style="background-color: #800000;">
     <div class="container">
         <a class="navbar-brand fw-bold" href="#">Mecha-Lab Student</a>
         <div class="d-flex text-white align-items-center">

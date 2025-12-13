@@ -11,7 +11,7 @@ if (isset($_POST['login_btn'])) {
     $password = $_POST['password']; 
 
     // Writes Query to check if email exists...
-    $sql = "SELECT * FROM Users WHERE email = '$email'";
+    $sql = "SELECT * FROM users WHERE email = '$email'";
     $result = $conn->query($sql);
 
     // 5. Checks if we found a user...

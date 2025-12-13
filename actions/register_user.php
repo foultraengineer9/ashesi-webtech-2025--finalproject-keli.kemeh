@@ -14,7 +14,7 @@ if (isset($_POST['register_btn'])) {
 
     // 4. Check if Email already exists...
     
-    $check_query = "SELECT * FROM Users WHERE email = '$email'";
+    $check_query = "SELECT * FROM users WHERE email = '$email'";
     $result = $conn->query($check_query);
 
     if ($result->num_rows > 0) {
@@ -27,7 +27,7 @@ if (isset($_POST['register_btn'])) {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         // 6. Inserts User into Database...
-        $sql = "INSERT INTO Users (fname, lname, email, password, role) 
+        $sql = "INSERT INTO users (fname, lname, email, password, role) 
                 VALUES ('$fname', '$lname', '$email', '$hashed_password', '$role')";
 
         if ($conn->query($sql) === TRUE) {

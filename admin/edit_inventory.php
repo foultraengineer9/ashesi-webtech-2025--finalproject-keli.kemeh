@@ -24,7 +24,7 @@ if (isset($_GET['id'])) {
 
 <div class="container mt-5" style="max-width: 600px;">
     <div class="card shadow">
-        <div class="card-header bg-maroon text-white">
+        <div class="card-header text-white" style="background-color: #800000;">
             <h4 class="mb-0">Edit Component</h4>
         </div>
         <div class="card-body">

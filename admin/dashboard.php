@@ -11,17 +11,17 @@ check_admin_role();
 
 
 // 1. Getting Total Items...
-$total_query = "SELECT COUNT(*) as count FROM Inventory";
+$total_query = "SELECT COUNT(*) as count FROM inventory";
 $total_result = $conn->query($total_query);
 $total_items = $total_result->fetch_assoc()['count'];
 
 // 2. Geting Borrowed Items...
-$borrowed_query = "SELECT COUNT(*) as count FROM Inventory WHERE status = 'Borrowed'";
+$borrowed_query = "SELECT COUNT(*) as count FROM inventory WHERE status = 'Borrowed'";
 $borrowed_result = $conn->query($borrowed_query);
 $borrowed_items = $borrowed_result->fetch_assoc()['count'];
 
 // 3. Getting Broken/Lost Items...
-$broken_query = "SELECT COUNT(*) as count FROM Inventory WHERE status = 'Broken' OR status = 'Lost'";
+$broken_query = "SELECT COUNT(*) as count FROM inventory WHERE status = 'Broken' OR status = 'Lost'";
 $broken_result = $conn->query($broken_query);
 $broken_items = $broken_result->fetch_assoc()['count'];
 
@@ -31,10 +31,10 @@ $available_items = $total_items - $borrowed_items - $broken_items;
 // Analytics Logic Ends here...
 
 // 2. Fetch All Inventory (Your existing code continues here...)
-$sql = "SELECT * FROM Inventory";
+$sql = "SELECT * FROM inventory";
 
 // 2. Fetch All Inventory...
-$sql = "SELECT * FROM Inventory";
+$sql = "SELECT * FROM inventory";
 $result = $conn->query($sql);
 ?>
 

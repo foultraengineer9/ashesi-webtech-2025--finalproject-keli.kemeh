@@ -8,7 +8,7 @@ if (isset($_GET['id'])) {
     $id = mysqli_real_escape_string($conn, $_GET['id']);
 
     // 2. Builds the Delete Query...
-    $sql = "DELETE FROM Inventory WHERE item_id = '$id'";
+    $sql = "DELETE FROM inventory WHERE item_id = '$id'";
 
     // 3. Executes...
     if ($conn->query($sql) === TRUE) {

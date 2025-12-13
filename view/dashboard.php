@@ -8,7 +8,7 @@ check_login();
 
 // 2. Fetch Inventory Data...
 // all items selected to display in the table...
-$sql = "SELECT * FROM Inventory";
+$sql = "SELECT * FROM inventory";
 $result = $conn->query($sql);
 ?>
 

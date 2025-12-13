@@ -7,10 +7,10 @@ if (isset($_POST['add_item_btn'])) {
     $serial = mysqli_real_escape_string($conn, $_POST['serial_number']);
     $category = $_POST['category'];
     $desc = mysqli_real_escape_string($conn, $_POST['description']);
-    $status = 'Available'; // Default status
+    $status = 'Available'; 
 
     // 2. Prepares SQL...
-    $sql = "INSERT INTO Inventory (category_id, item_name, serial_number, description, status) 
+    $sql = "INSERT INTO inventory (category_id, item_name, serial_number, description, status) 
             VALUES ('$category', '$name', '$serial', '$desc', '$status')";
 
     // 3. Execute and Check...

@@ -10,7 +10,7 @@ if (isset($_POST['update_btn'])) {
     $status = $_POST['status'];
 
     // 2. Updates Query...
-    $sql = "UPDATE Inventory SET 
+    $sql = "UPDATE inventory SET 
             item_name = '$name', 
             serial_number = '$serial', 
             category_id = '$category', 

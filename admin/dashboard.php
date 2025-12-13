@@ -7,6 +7,32 @@ include "../settings/connection.php";
 
 check_admin_role(); 
 
+
+
+
+// 1. Getting Total Items...
+$total_query = "SELECT COUNT(*) as count FROM Inventory";
+$total_result = $conn->query($total_query);
+$total_items = $total_result->fetch_assoc()['count'];
+
+// 2. Geting Borrowed Items...
+$borrowed_query = "SELECT COUNT(*) as count FROM Inventory WHERE status = 'Borrowed'";
+$borrowed_result = $conn->query($borrowed_query);
+$borrowed_items = $borrowed_result->fetch_assoc()['count'];
+
+// 3. Getting Broken/Lost Items...
+$broken_query = "SELECT COUNT(*) as count FROM Inventory WHERE status = 'Broken' OR status = 'Lost'";
+$broken_result = $conn->query($broken_query);
+$broken_items = $broken_result->fetch_assoc()['count'];
+
+// 4. Get Available Items (Calculated)...
+$available_items = $total_items - $borrowed_items - $broken_items;
+
+// Analytics Logic Ends here...
+
+// 2. Fetch All Inventory (Your existing code continues here...)
+$sql = "SELECT * FROM Inventory";
+
 // 2. Fetch All Inventory...
 $sql = "SELECT * FROM Inventory";
 $result = $conn->query($sql);
@@ -31,6 +57,84 @@ $result = $conn->query($sql);
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php endif; ?>
+
+    <div class="row mb-5">
+        <div class="col-md-3">
+            <div class="card text-white bg-primary mb-3 shadow-sm h-100">
+                <div class="card-header">Total Inventory</div>
+                <div class="card-body">
+                    <h1 class="card-title fw-bold"><?php echo $total_items; ?></h1>
+                    <p class="card-text">Items in database</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="card text-dark bg-warning mb-3 shadow-sm h-100">
+                <div class="card-header">On Loan</div>
+                <div class="card-body">
+                    <h1 class="card-title fw-bold"><?php echo $borrowed_items; ?></h1>
+                    <p class="card-text">Students holding items</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-white bg-danger mb-3 shadow-sm h-100">
+                <div class="card-header">Faulty / Lost</div>
+                <div class="card-body">
+                    <h1 class="card-title fw-bold"><?php echo $broken_items; ?></h1>
+                    <p class="card-text">Needs replacement</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body d-flex justify-content-center align-items-center">
+                    <canvas id="inventoryChart" style="max-height: 150px;"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    // Setting uup the Pie Chart...
+    const ctx = document.getElementById('inventoryChart').getContext('2d');
+    const inventoryChart = new Chart(ctx, {
+        type: 'doughnut', 
+        data: {
+            labels: ['Available', 'Borrowed', 'Broken'],
+            datasets: [{
+                data: [
+                    <?php echo $available_items; ?>, 
+                    <?php echo $borrowed_items; ?>, 
+                    <?php echo $broken_items; ?>
+                ],
+                backgroundColor: [
+                    '#198754', // Green is for Available...
+                    '#ffc107', // Yellow for Borrowed...
+                    '#dc3545'  // and Red for Broken...
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false // Hides legend to save some space...
+                }
+            }
+        }
+    });
+</script>
+
+<?php include '../view/footer.php'; ?>
 
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="fw-bold">Inventory Management</h2>

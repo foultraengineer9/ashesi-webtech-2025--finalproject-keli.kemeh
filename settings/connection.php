@@ -12,10 +12,10 @@
 
 // LIVE SERVER CREDENTIALS 
 
-$SERVER = "localhost";   // Often this stays "localhost" on cPanel, or an IP address/URL on Azure
-$USERNAME = "YOUR_LIVE_USERNAME"; 
-$PASSWORD = "YOUR_LIVE_PASSWORD"; 
-$DATABASE = "YOUR_LIVE_DB_NAME";
+$SERVER = "sql202.infinityfree.com";   
+$USERNAME = "if0_40673426"; 
+$PASSWORD = "KeKE0384"; 
+$DATABASE = "if0_40673426_XXX";
 
 // Create Connection...
 $conn = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);

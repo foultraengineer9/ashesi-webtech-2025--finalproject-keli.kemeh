@@ -15,7 +15,7 @@
 $SERVER = "sql202.infinityfree.com";   
 $USERNAME = "if0_40673426"; 
 $PASSWORD = "KeKE0384"; 
-$DATABASE = "if0_40673426_XXX";
+$DATABASE = "if0_40673426_foultra_mecha_lab";
 
 // Create Connection...
 $conn = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);

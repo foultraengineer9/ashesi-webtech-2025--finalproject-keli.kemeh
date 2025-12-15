@@ -16,7 +16,7 @@ error_reporting(E_ALL);
 
 // LIVE SERVER CREDENTIALS 
 
-$SERVER = "sql202.infinityfree.com";
+$SERVER = "sql303.infinityfree.com";
 $USERNAME = "if0_40686913";
 $PASSWORD = "KeKE1925";
 $DATABASE = "if0_40686913_mecha_lab_db";

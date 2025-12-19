@@ -5,6 +5,7 @@
 **ID:** [05282027]  
 
 GITHUB REPOSITORY link: [https://github.com/foultraengineer9/ashesi-webtech-2025--finalproject-keli.kemeh]
+YOUTUBE VIDEO DEMO LINK: [https://youtu.be/VRLPfd81HX4]
 
 ## Project Overview
 A web-based inventory management system for the Ashesi Engineering Department ,the **Mecha-Lab Inventory Manager** is a web-based application designed to help the Ashesi Engineering department track lab equipment. It allows lab administrators and students to manage the borrowing and return of components such as Arduinos, Sensors, and Motors.
